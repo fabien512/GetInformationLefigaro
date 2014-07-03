@@ -7,7 +7,13 @@ class LeFigaroConnector {
 	private	$	keyword;
 	public $tableOfArticles = array();
 	
-	
+/**
+
+* @param string $day for title newpspaper name
+* @param string $month for header newpspaper file
+* @param string $year for title newpspaper name
+* @param string $keyword to apply for the research
+*/
 	function __construct($_day, $_month,$_year,$_keyword) {
 		$this->day = $_day;
 		$this->month = $_month;
@@ -19,7 +25,9 @@ class LeFigaroConnector {
 		return $this->tableOfArticles;
     }
 	
-	
+	/**
+Load articles with the specified keyword
+*/
 	public function loadArticles($limitinf = null, $limitsupp = null) {
 		if ($this->day > 31 || $this->day < 1 || $this->year < 1944) {
 		exit("Bad parameters");
@@ -102,6 +110,9 @@ $nodes = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '),
 	
 	}
 	
+		/**
+Load one month of articles
+*/
 	public function loadMonthArticles($limitinf = null, $limitsupp = null) {
 	if ($this->year < 1944) {
 		exit("Bad parameters");
@@ -188,7 +199,11 @@ $nodes = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '),
 		}
 	}
 	
-	
+	/**
+	 * Export the file as a .xml file
+	 * 
+	 * */
+	 
 	function exportXml($fichier) {
 
 		header("Content-Type: text/plain");
