@@ -7,6 +7,15 @@ class Article {
 		private $_date;
 		private $_url;
 		
+		
+/**
+
+* @param string $title for title newpspaper name
+* @param string $extract for header newpspaper file
+* @param string $author for title newpspaper name
+* @param string $date for date of the newpspaper article
+* @param string $url for url of the newspaper article
+*/
 	function __construct($_title,$_extract, $_author, $_date, $_url ) {
 		$this->title = $_title;
 		$this->extract = $_extract;
